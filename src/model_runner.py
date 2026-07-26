@@ -7,9 +7,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
 import json
 
-# Setup exact ggplot styling
 plt.style.use('ggplot')
-gg_colors = ["#F8766D", "#00BFC4"] # R's default red and blue
+gg_colors = ["#F8766D", "#00BFC4"] # Define custom color palette
 sns.set_palette(sns.color_palette(gg_colors))
 
 np.random.seed(51)
@@ -44,7 +43,7 @@ def plot_prop_bar(data, col, ax, title, add_hline=True):
     totals = prop_df.groupby(col)['num'].transform('sum')
     prop_df['prop'] = prop_df['num'] / totals
     
-    # Sort categories alphabetically/reverse to match R
+    # Sort categories alphabetically in reverse
     order = sorted(data[col].unique(), reverse=True)
     
     sns.barplot(data=prop_df, y=col, x='prop', hue='is_canceled', ax=ax, order=order, dodge=False)
@@ -53,7 +52,7 @@ def plot_prop_bar(data, col, ax, title, add_hline=True):
     ax.set_ylabel('')
     ax.set_xticks([]) # hide x ticks
     if add_hline:
-        ax.axvline(x=0.6296, color='black', lw=2) # geom_hline coord_flip becomes vline
+        ax.axvline(x=0.6296, color='black', lw=2) # Add reference line
     ax.legend_.remove() # hide individual legends
 
 def plot_density(data, col, ax, title, means_dict=None):
@@ -138,7 +137,7 @@ indices = np.argsort(importances)[-20:]
 # Plot 5 (Variable Importance)
 plt.figure(figsize=(10,8))
 plt.title('Variable Importance for Base Model', fontweight='bold')
-plt.plot(importances[indices], range(len(indices)), 'ko', markersize=8) # black dots like R
+plt.plot(importances[indices], range(len(indices)), 'ko', markersize=8) 
 plt.yticks(range(len(indices)), [X.columns[i] for i in indices])
 plt.xlabel('MeanDecreaseAccuracy / MeanDecreaseGini')
 plt.savefig("images_python/plot_5.png", bbox_inches='tight')
@@ -146,9 +145,9 @@ plt.close()
 
 # Plot 6 (Splits / Highcharter clone)
 plt.figure(figsize=(10,8))
-plt.style.use('default') # Disable ggplot for this one to look like Highcharts
+plt.style.use('default') # Use default style for this plot
 plt.title('Number of times the variable was split', fontweight='bold', fontsize=18)
-plt.barh(range(len(indices)), importances[indices]*1000, align='center', color='#7cb5ec') # Highcharts default blue
+plt.barh(range(len(indices)), importances[indices]*1000, align='center', color='#7cb5ec') # Use custom blue color
 plt.yticks(range(len(indices)), [X.columns[i] for i in indices], fontsize=12)
 plt.xlabel('Total Number of Splits')
 plt.gca().spines['top'].set_visible(False)
