@@ -1,1 +1,0 @@
-{"rf_print": "RandomForestClassifier(n_estimators=100)\n\nType of random forest: classification\nNumber of trees: 100\nNo. of variables tried at each split: auto\n", "cm_print": "Confusion Matrix and Statistics\n\n          Reference\nPrediction    n    y\n         n 13744 1124\n         y 2263 6747\n\nAccuracy : 0.8582\n"}
