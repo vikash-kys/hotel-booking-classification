@@ -1,22 +1,28 @@
-# Trivago Hotel Booking - Random Forest Classification
+# Trivago Hotel Booking Classification
 
-## Overview
-This repository contains a Data Science portfolio project focused on predicting Trivago hotel bookings using Machine Learning, specifically the Random Forest Classification algorithm. The project involves exploratory data analysis (EDA), data visualization, preprocessing, and predictive modeling to identify the key factors driving successful hotel bookings.
+This repository contains a full Data Science portfolio project analyzing the Trivago hotel booking dataset and training a Random Forest Classifier to predict cancellations.
 
 ## Project Structure
-- `index.html`: The main project notebook exported to HTML. It includes all the R/Python code, statistical summaries, interactive plots, and the final machine learning model, exactly as originally executed.
 
-## Key Sections
-1. **Abstract:** High-level summary of the analysis and findings.
-2. **The Data:** Data ingestion, cleaning, and preparation steps.
-3. **Analysis of the Data:** 
-   - Basic Statistics
-   - Distribution of Features
-   - Graphing of Features (Multiple Graph Sets)
-4. **Modeling:** Implementation of the Random Forest Classifier, model evaluation, and feature importance.
+- `index.html`: The main portfolio website (deployed via GitHub Pages). Contains interactive analysis, visualizations, and code walkthroughs.
+- `images/`: The generated static visual assets used in the exploratory data analysis.
+- `src/`: The raw Python source code and Jupyter notebook for the machine learning pipeline.
+  - `hotel_booking_classification.ipynb`: A Jupyter Notebook containing the full pipeline (EDA, preprocessing, and modeling) that you can run locally.
+  - `model_runner.py`: The standalone Python script that performs the exact same pipeline and generates the plot images.
+- `scripts/`: Internal utility scripts used to translate the formatting of the HTML files.
 
-## How to View
-You can view the full analysis, code, and interactive visualizations by downloading the `index.html` file and opening it in any web browser, or by viewing it via GitHub Pages if hosted.
+## Running Locally
 
-## Author
-Vikash Kumar Yadav
+To run the analysis yourself:
+
+1. Clone this repository.
+2. Ensure you have `pandas`, `numpy`, `matplotlib`, `seaborn`, and `scikit-learn` installed.
+3. Navigate to the `src/` folder and open the `hotel_booking_classification.ipynb` notebook in Jupyter, or run the standalone script:
+
+```bash
+python src/model_runner.py
+```
+
+## View Live
+
+The analysis is hosted live at: [https://vikash-kys.github.io/hotel-booking-classification/](https://vikash-kys.github.io/hotel-booking-classification/)
